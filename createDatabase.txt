@@ -1,0 +1,6 @@
+create database unit_converter;
+\c unit_converter
+create table user_info (id INT NOT NULL, first_name VARCHAR(30), last_name VARCHAR(30), units VARCHAR(30), theme VARCHAR(30), PRIMARY KEY(id));
+create table currency_data (acronym VARCHAR(5), name VARCHAR(30), value FLOAT NOT NULL, PRIMARY KEY(acronym));
+insert into user_info (id, first_name, last_name, units, theme) values (0, 'Kai', 'Thomas', 'Imperial', 'Dark'), (1, 'Jake', 'Yankovich', 'Imperial', 'Pink'), (2, 'Wilson', 'Major', 'Metric', 'Green');
+insert into currency_data (acronym, name, value) values ('USD', 'US Dollar', 1), ('EUR', 'Euro', 0.89), ('JPY', 'Japanese Yen', 107.88), ('GBP', 'Pound Sterling', 0.79), ('AUD', 'Australian Dollar', 1.43), ('CAD', 'Canadian Dollar', 1.31), ('CHF', 'Swiss Franc', 0.99), ('CNH', 'Chines Renminbi', 6.87), ('SEK', 'Swedish Krona', 9.33), ('NZD', 'New Zealand Dollar', 30.97);
