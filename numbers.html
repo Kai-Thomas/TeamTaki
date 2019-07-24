@@ -1,0 +1,232 @@
+<html>
+
+<style>
+  html, body { height:0%; margin:0; padding:0 }
+  h5 { font-family:"verdana"; color:#CCC;}
+  h4 { font-family:"verdana"}
+  h1 { font-family:"verdana"}
+  a { text-decoration: none;}
+  #nav0 { position:fixed; height:7%; width:10%; top:0%; left:  0%; background: #333; width:100% }
+  #nav1 { position:fixed; height:7%; width:10%; top:0%; left: 0%; width:6%}
+  #nav2 { position:fixed; height:7%; width:10%; top:0%; left: 6%; }
+  #nav3 { position:fixed; height:7%; width:10%; top:0%; left: 16%; }
+  #nav4 { position:fixed; height:7%; width:10%; top:0%; left: 26%; }
+  #nav5 { position:fixed; height:7%; width:10%; top:0%; left: 34.75%; }
+  #nav6 { position:fixed; height:7%; width:10%; top:0%; left: 41%; }
+
+  #box1{ position:fixed; left:10%; height:30%; top:13%; width:80%}
+  #box2{ position:fixed; left:14%; height:30%; top:22%; width:80%}
+</style>
+
+<body>
+<div id="nav0">
+</div>
+
+<a href="home.html">
+  <div id="nav1">
+    <h5><center>Home</center></h5>
+  </div>
+</a>
+<div id= "nav2">
+  <h5><center>Number Bases</center></h5>
+</div>
+
+<div id="nav3">
+  <h5><center>Temperatures</center></h5>
+</div>
+
+<div id= "nav4">
+  <h5><center>Mass/Weight</center></h5>
+</div>
+
+<div id= "nav5">
+  <h5><center>Currency</center></h5>
+</div>
+
+<div id= "nav6">
+  <h5><center>More</center></h5>
+</div>
+
+
+<div id = "box1">
+  <h1>Number Base Conversion</h1>
+  <div id = "box2">
+    <form id="frm1" action="/action_page.php">
+    <h4>Binary: <input        id="bin" name="fname" type="text" placeholder="Test"></input></h4>
+    <h4>Hexadecimal: <input   id="hex" placeholder="Test"></input></h4>
+    <h4>Decimal: <input       id="dec" placeholder="Test"></input></h4>
+    <h4><input type="button" onclick="myFunction()" value="Submit"></h4>
+    </form>
+  </div>
+</div>
+
+</body>
+
+<script>
+
+  function binToHex(bin){
+      var bins = [ "0000", "0001", "0010", "0011", "0100", "0101", "0110", "0111", "1000", "1001", "1010", "1011", "1100", "1101", "1110", "1111"];
+      var chars = ['A', 'B', 'C', 'D', 'E', 'F'];
+      var l = bin.length/4;
+      var hex = "";
+      for (var i = 0; l > 0; i+=4) {
+          var k = bin.substring(i, i + 4);
+          for (var j = 0; j < bins.length; j++) {
+              if (k == bins[j] && j <= 9) {
+                  hex += j;
+              }
+              else if (k == bins[j] && j > 9) {
+                  hex += chars[j - 10];
+              }
+          }
+          l--;
+      }
+      document.getElementById("hex").placeholder = hex;
+  }
+
+    function binToDec(n) {
+        var dec = 0;
+        var l = n.length;
+        var k = 0;
+        for (var i = l-1; i >= 0; i--) {
+            if (n[i] != '0') {
+                dec += Math.pow(2, k);
+
+            }
+            k++;
+        }
+        document.getElementById("dec").placeholder = dec;
+    }
+
+    function hexToDec(x)
+    {
+        var dec = 0;
+        var chars = [ 'A', 'B', 'C', 'D', 'E', 'F'];
+        var n = chars.length;
+        var l = x.length;
+        var k = 0;
+        for (var i = l - 1; i >= 0; i-- )
+        {
+            if (x[i] != '0') {
+                if (x[i].toLowerCase() != x[i].toUpperCase()) { //this is the best js equivalent I could find for C++ isalpha() function
+                    for (var j = 0; j < n; j++) {
+                        if (x[i] == chars[j]) {
+                            dec += Math.pow(16, k) * (j + 10);
+                        }
+                    }
+                }
+
+                else {
+                    dec += Math.pow(16, k) * x.substring(i, i + 1);
+                }
+            }
+            k++;
+        }
+        document.getElementById("dec").placeholder = dec;
+
+    }
+
+
+    function hexToBin(n)
+    {
+        var l = n.length;
+        var bins = [ "0000", "0001", "0010", "0011", "0100", "0101", "0110", "0111", "1000", "1001", "1010", "1011", "1100", "1101", "1110", "1111"];
+        var chars = [ 'A', 'B', 'C', 'D', 'E', 'F'];
+        var bin = "";
+        var h = chars.length;
+        for (var i = 0; i < l; i++)
+        {
+            if (n[i].toLowerCase() != n[i].toUpperCase()) {
+                for (var j = 0; j < h; j++)
+                {
+                    if (n[i] == chars[j]) {
+                        bin += bins[j + 10];
+                    }
+                }
+            }
+            else {
+                
+                bin += bins[n.substring(i, i+1)];
+            }
+        }
+        document.getElementById("bin").placeholder = bin;
+    }
+
+    function decToHex(n)
+    {
+        var chars = [ 'A', 'B', 'C', 'D', 'E', 'F'];
+        var R = [];
+        var l = n.length;
+        while (n > 0) {
+            R.push(n % 16);
+            n = Math.floor(n / 16);
+        }
+        var hex = "";
+        var k = R.length - 1;
+        for (k; k >= 0; k--) {
+            if (R[k] <= 9) {
+                hex += R[k];
+            }
+            else {
+                var j = R[k] - 10;
+                hex += chars[j];
+            }
+        }
+        document.getElementById("hex").placeholder = hex;
+    }
+
+    function decToBin(n)
+    {
+        var R = [];
+        var l = n.length;
+        while (n > 0) {
+            R.push(n % 2);
+            n = Math.floor(n / 2);
+        }
+        var bin = "";
+        var k = R.length - 1;
+        for (k; k >= 0; k--) {
+            bin += R[k];
+        }
+        document.getElementById("bin").placeholder = bin;
+    }
+
+  function myFunction() {
+    console.log("test");
+    var x = document.getElementById("frm1");
+
+    var bin = x.elements[0].value;
+    var hex = x.elements[1].value;
+    var dec = x.elements[2].value;
+
+    if (bin != ""){
+      binToHex(bin);
+      binToDec(bin);
+      document.getElementById("bin").placeholder = bin; //nothing
+      document.getElementById("bin").value = ""; //nothing
+    }
+
+      if (hex != "") {
+      hexToDec(hex);
+      hexToBin(hex);
+      document.getElementById("hex").placeholder = hex;
+      document.getElementById("hex").value = "";
+    }
+
+      if (dec != "") {
+      decToHex(dec);
+      decToBin(dec);
+      document.getElementById("dec").placeholder = dec;
+      document.getElementById("dec").value = "";
+    }
+
+    
+  }
+
+
+
+
+
+</script>
+
+</html>
