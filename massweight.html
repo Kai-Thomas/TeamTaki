@@ -1,0 +1,196 @@
+<html>
+
+<style>
+  html, body { height:0%; margin:0; padding:0 }
+  h5 { font-family:"verdana"; color:#CCC;}
+  h4 { font-family:"verdana"}
+  h1 { font-family:"verdana"}
+  a { text-decoration: none;}
+  #nav0 { position:fixed; height:7%; width:80; top:0%; left: 0%; background: #333; width:100% }
+  #nav1 { position:fixed; height:7%; width:80; top:0%; left: 0; width:6%}
+  #nav2 { position:fixed; height:7%; width:120; top:0%; left: 60; }
+  #nav3 { position:fixed; height:7%; width:80; top:0%; left: 190; }
+  #nav4 { position:fixed; height:7%; width:80; top:0%; left: 310; }
+  #nav5 { position:fixed; height:7%; width:80; top:0%; left: 420; }
+  #nav6 { position:fixed; height:7%; width:80; top:0%; left: 490; }
+
+  #box1{ position:fixed; left:10%; height:30%; top:13%; width:80%}
+  #box2{ position:fixed; left:14%; height:30%; top:22%; width:80%}
+</style>
+
+<body>
+<div id="nav0">
+</div>
+
+<a href="home.html">
+  <div id="nav1">
+    <h5><center>Home</center></h5>
+  </div>
+</a>
+
+<a href="numbers.html">
+  <div id= "nav2">
+    <h5><center>Number Bases</center></h5>
+  </div>
+</a>
+
+<a href="temp.html">
+  <div id="nav3">
+    <h5><center>Temperatures</center></h5>
+  </div>
+</a>
+
+<a href="massweight.html">
+  <div id= "nav4">
+    <h5><center>Mass/Weight</center></h5>
+  </div>
+</a>
+
+<div id= "nav5">
+  <h5><center>Currency</center></h5>
+</div>
+
+<div id= "nav6">
+  <h5><center>More</center></h5>
+</div>
+
+
+<div id = "box1">
+  <h1>Mass/Weight Conversion</h1>
+  <div id = "box2">
+    <form id="frm1" action="/action_page.php">
+    <h4>Ounces: <input     id="oz"  placeholder=""></input></h4>
+    <h4>Pounds: <input     id="lbs" placeholder=""></input></h4>
+    <h4>Kilograms: <input  id="kg"  placeholder=""></input></h4>
+    <h4>Grams: <input      id="g"   placeholder=""></input></h4>
+    <h4><input type="button" onclick="myFunction()" value="Submit"></h4>
+    </form>
+  </div>
+</div>
+
+</body>
+
+<script>
+
+  // Kai's functions here
+    function ouncesToPounds(ounces) {
+        var pounds = ounces / 16;
+        document.getElementById("lbs").placeholder = pounds.toFixed(2);
+    }
+    function ouncesToKilograms(ounces)
+    {
+        var kilograms = ounces / 35.274;
+        document.getElementById("kg").placeholder = kilograms.toFixed(2);
+    }
+    function ouncesToGrams(ounces)
+    {
+        var grams = ounces * 28.3495;
+        document.getElementById("g").placeholder = grams.toFixed(2);
+    }
+    function poundsToOunces(pounds)
+    {
+        var ounces = pounds * 16;
+        document.getElementById("oz").placeholder = ounces.toFixed(2);
+    }
+    function poundsToKilograms(pounds)
+    {
+        var kilograms = pounds / 2.205;
+        document.getElementById("kg").placeholder = kilograms.toFixed(2);
+    }
+    function poundsToGrams(pounds)
+    {
+        var grams = pounds * 453.592;
+        document.getElementById("g").placeholder = grams.toFixed(2);
+    }
+    function kilogramsToGrams(kilograms)
+    {
+        var grams = kilograms * 1000;
+        document.getElementById("g").placeholder = grams.toFixed(2);
+    }
+    function kilogramsToOunces(kilograms)
+    {
+        var ounces = kilograms * 35.274;
+        document.getElementById("oz").placeholder = ounces.toFixed(2);
+    }
+    function kilogramsToPounds(kilograms)
+    {
+        var pounds = kilograms * 2.205;
+        document.getElementById("lbs").placeholder = pounds.toFixed(2);
+    }
+    function gramsToKilograms(grams)
+    {
+        var kilograms = grams / 1000;
+        document.getElementById("kg").placeholder = kilograms.toFixed(2);
+    }
+    function gramsToOunces(grams)
+    {
+        var ounces = grams / 28.3495;
+        document.getElementById("oz").placeholder = ounces.toFixed(2);
+    }
+    function gramsToPounds(grams)
+    {
+        var pounds = grams / 453.592;
+        document.getElementById("lbs").placeholder = pounds.toFixed(2);
+    }
+
+
+
+
+  //example:
+  //function ozToPounds(oz){
+  // pounds = ounces * 12 or something;
+  // document.getElementById("lbs").placeholder = pounds;
+  //}
+
+
+  function myFunction() {
+    console.log("test");
+    var x = document.getElementById("frm1");
+
+    var ounces = x.elements[0].value;
+    var pounds = x.elements[1].value;
+    var kilograms = x.elements[2].value;
+    var grams = x.elements[3].value;
+
+    if (ounces != ""){ //done
+      ouncesToPounds(ounces);
+      ouncesToKilograms(ounces);
+      ouncesToGrams(ounces);
+      document.getElementById("oz").placeholder = ounces;
+      document.getElementById("oz").value = "";
+    }
+
+      if (pounds != "") { //done
+      poundsToOunces(pounds);
+      poundsToGrams(pounds);
+      poundsToKilograms(pounds);
+      document.getElementById("lbs").placeholder = pounds;
+      document.getElementById("lbs").value = "";
+    }
+
+      if (kilograms != "") { //done
+      kilogramsToPounds(kilograms);
+      kilogramsToOunces(kilograms);
+      kilogramsToGrams(kilograms);
+      document.getElementById("kg").placeholder = kilograms;
+      document.getElementById("kg").value = "";
+    }
+
+    if (grams != ""){ //done
+      gramsToOunces(grams);
+        gramsToPounds(grams);
+        gramsToKilograms(grams);
+      document.getElementById("g").placeholder = grams;
+      document.getElementById("g").value = "";
+    }
+
+
+  }
+
+
+
+
+
+</script>
+
+</html>
