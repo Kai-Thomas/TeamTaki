@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Unit Conv</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+<h2>F to C Conv</h2>
+<p>Fahrenheit to Celsius:</p>
+
+<p>
+  <label>Fahrenheit</label>
+  <input id="fah" type="number" placeholder="fah" oninput="tempFtoC(this.value)" onchange="tempFtoC(this.value)">
+</p>
+<p>Celcius: <span id="outputC"></span></p>
+
+<script>
+function tempFtoC(valNum) {
+  valNum = parseFloat(valNum);
+  document.getElementById("outputC").innerHTML=(valNum-32)/1.8;
+}
+</script>
+
+<h2>C to F Conv</h2>
+
+<p>Celsius to Fah:</p>
+
+<p>
+  <label>Celsius</label>
+  <input id="cel" type="number" placeholder="cel" oninput="tempCtoF(this.value)" onchange="tempCtoF(this.value)">
+</p>
+<p>Celcius: <span id="outputF"></span></p>
+
+<script>
+function tempCtoF(valNum) {
+  valNum = parseFloat(valNum);
+  document.getElementById("outputF").innerHTML=(valNum * 9/5) + 32;
+}
+</script>
+
+
+<h2> Dollar to Euro: </h2>
+
+<p>Dollar to Euro:</p>
+
+<p>
+  <label>Dollar</label>
+  <input id="cel" type="number" placeholder="dollar" oninput="dollToEuro(this.value)" onchange="dollToEuro(this.value)">
+</p>
+<p>Euro: <span id="outputD"></span></p>
+
+<script>
+function dollToEuro(valNum) {
+  valNum = parseFloat(valNum);
+  document.getElementById("outputD").innerHTML=(valNum * 0.90);
+}
+</script>
+
+<h2> Euro to Dollar: </h2>
+
+<p>Euro to Dollar:</p>
+
+<p>
+  <label>Euro</label>
+  <input id="cel" type="number" placeholder="euro" oninput="euroToDoll(this.value)" onchange="euroToDoll(this.value)">
+</p>
+<p>Dollar: <span id="outputE"></span></p>
+
+<script>
+function euroToDoll(valNum) {
+  valNum = parseFloat(valNum);
+  document.getElementById("outputE").innerHTML=(valNum / 0.90);
+}
+
+
+
+
+
+</script>
+
+<script>
+
+$(document).ready(function() {
+			var url ='https://api.exchangeratesapi.io/latest';
+			$.ajax({url:url, dataType:"json"}).then(function(output) {
+        console.log(output);
+        var usd = output.rates["USD"];
+        var eur = output.rates["EUR"];
+        var jpy = output.rates["JPY"];
+        var gbp = output.rates["GBP"];
+        var aud = output.rates["AUD"];
+        var nzd = output.rates["NZD"];
+        var cad = output.rates["CAD"];
+        var chf = output.rates["CHF"];
+        var aud = output.rates["CNH"];
+        var sek = output.rates["SEK"];
+        console.log(usd);
+        console.log(eur);
+
+
+      });
+
+});
+
+
+//var html = "<p>An <a href='https://api.exchangeratesapi.io/latest'><b>example</b></a> link.</p>";
+//var doc = Jsoup.parse(html);
+// Element link = doc.select("a").first();
+//
+// Document doc = Jsoup.connect("https://api.exchangeratesapi.io/latest").get();
+
+//console.log(doc);
+//var text = doc.body().text(); // "An example link"
+
+
+//console.log(text);
+   	</script>
+
+
+</body>
+</html>
