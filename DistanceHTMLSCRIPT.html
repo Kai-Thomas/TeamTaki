@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<title>Distance Converter</title>
+<p>Feet and Meters:</p>
+<body>
+<p>
+  <label>Feet</label>
+  <input id = "inputFeet" type="number" placeholder="Enter Number Here"
+  oninput="FeetToInches(this.value)" onchange="FeetToInches(this.value)">
+</p>
+<p>Meters: <span id="outputInchesFromFeet"></span></p>
+<p>
+  <label>Meters</label>
+  <input id = "inputInches" type="number" placeholder="Enter Number Here"
+  oninput="InchesToFeet(this.value)" onchange="InchesToFeet(this.value)">
+</p>
+
+<p>Feet: <span id="outputFeetFromInches"</span></p>
+<script>
+function InchesToFeet(value){
+  document.getElementById("outputFeetFromInches").innerHTML=value/12;
+}
+function FeetToInches(value){
+  document.getElementById("outputInchesFromFeet").innerHTML=value*12;
+}
+function InchesToYards(value){
+  document.getElementById("outputYardsFromInches").innerHTML=value/36;
+}
+function YardsToInches(value){
+  document.getElementById("outputInchesFromYards").innerHTML=value*36;
+}
+function InchesToMiles(value){
+  document.getElementById("outputMilesFromInches").innerHTML=value/63360;
+}
+function MilesToInches(value){
+  document.getElementById("outputInchesFromMiles").innerHTML=value*63360;
+}
+function InchesToMicrometers(value){
+  document.getElementById("outputMicrometersFromInches").innerHTML=value*25400;
+}
+function MicrometersToInches(value){
+  document.getElementById("outputInchesFromMicrometers").innerHTML=value/25400;
+}
+function InchesToMilimeters(value){
+  document.getElementById("outputMilimetersFromInches").innerHTML=value*25.4;
+}
+function MilimetersToInches(value){
+  document.getElementById("outputMeters").innerHTML=value/25.4;
+}
+function InchesToCentimeters(value){
+  document.getElementById("outputCentimetersFromInches").innerHTML=value*2.54;
+}
+function CentimetersToInches(value){
+  document.getElementById("outputInchesFromCentimeters").innerHTML=value/2.54;
+}
+function InchesToMeters(value){
+  document.getElementById("outputMetersFromInches").innerHTML=value/39.37;
+}
+function MeterToInches(value){
+  document.getElementById("outputInchesFromMeters").innerHTML=value*39.37;
+}
+function InchesToKilometer(value){
+  document.getElementById("outputKilometersFromInches").innerHTML=value/39370.079;
+}
+function KilometersToInches(value){
+  document.getElementById("outputInchesFromKilometers").innerHTML=value*39370.079;
+}
+function FeetToYards(value){
+  document.getElementById("outputYardsFromFeet").innerHTML=value/3;
+}
+function YardsToFeet(value){
+  document.getElementById("outputFeetFromYards").innerHTML=value*3;
+}
+function FeetToMiles(value){
+  document.getElementById("outputMilesFromFeet").innerHTML=value/5280;
+}
+function MilesToFeet(value){
+  document.getElementById("outputFeetFromMiles").innerHTML=value*5280;
+}
+function FeetToMicrometer(value){
+  document.getElementById("outputMicrometerFromFeet").innerHTML=value*304800;
+}
+function MicrometerToFeet(value){
+  document.getElementById("outputMicroetersFromFeet").innerHTML=value/304800;
+}
+function FeetToMilimeter(value){
+  document.getElementById("outputMilimetersFromFeet").innerHTML=value*304.8;
+}
+function MilimeterToFeet(value){
+  document.getElementById("outputFeetFromMilimeters").innerHTML=value/304.8;
+}
+function FeetToCentimeters(value){
+  document.getElementById("outputCentimetersFromFeet").innerHTML=value*30.48;
+}
+function CentimetersToFeet(value){
+  document.getElementById("outputFeetFromCentimeters").innerHTML=value/30.48;
+}
+function FeetToMeters(value){
+  document.getElementById("outputMetersFromFeet").innerHTML=value/3.281;
+}
+function MetersToFeet(value){
+  document.getElementById("outputFeetFromMeters").innerHTML=value*3.281;
+}
+function FeetToKilometers(value){
+  document.getElementById("outputKilometersFromInches").innerHTML=value/3280.84;
+}
+function KilometersToFeet(value){
+  document.getElementById("outputFeetFromKilometers").innerHTML=value*3280.84;
+}
+function MilesToYards(value){
+  document.getElementById("outputYardsFromMiles").innerHTML=value*1760;
+}
+function YardsToMicrometers(value){
+  document.getElementById("outputMicrometersFromYards").innerHTML=value*914400;
+}
+function MicrometersToYards(value){
+  document.getElementById("outputYardsFromMicrometers").innerHTML=value/914400;
+}
+function YardsToMilimeters(value){
+  document.getElementById("outputMilimetersFromYards").innerHTML=value*914.4;
+}
+function YardsToCentimeter(value){
+  document.getElementById("outputCentimetersFromYards").innerHTML=value*91.44;
+}
+function CentimetersToYards(value){
+  document.getElementById("outputYardsFromCentimeters").innerHTML=value/91.44;
+}
+function YardsToMeters(value){
+  document.getElementById("outputMetersFromYards").innerHTML=value/1.094;
+}
+function MetersToYards(value){
+  document.getElementById("outputYardsMeters").innerHTML=value*1.094;
+}
+function YardsToKilometers(value){
+  document.getElementById("outputKilometersFromYards").innerHTML=value/1093.613;
+}
+function KilometersToYards(value){
+  document.getElementById("outputYardsFromKilometers").innerHTML=value*1093.613;
+}
+function MilesToCentimeters(value){
+  document.getElementById("outputCentimetersFromMiles").innerHTML=value*160934.4;
+}
+function CentimetersToMiles(value){
+  document.getElementById("outputMilesFromCentimeters").innerHTML=value/160934.4;
+}
+function MilesToMeters(value){
+  document.getElementById("outputMetersFromMiles").innerHTML=value*1609.344;
+}
+function MetersToMiles(value){
+  document.getElementById("outputMilesFromMeters").innerHTML=value/1609.344;
+}
+function MilesToKilometers(value){
+  document.getElementById("outputKilometersFromMiles").innerHTML=value/1.60934;
+}
+function KilometersToMiles(value){
+  document.getElementById("outputMilesFromKilometers").innerHTML=value*1.60934;
+}
+function NanometersToMicrometers(value){
+  document.getElementById("outputMicrometersFromNanometers").innerHTML=value/1000;
+}
+function MicrometerToNanometers(value){
+  document.getElementById("outputNanometersFromMicrometers").innerHTML=value*1000;
+}
+function MicrometersToMilimeter(value){
+  document.getElementById("outputMilimetersFromMicrometers").innerHTML=value/1000;
+}
+function MilimetersToMicrometers(value){
+  document.getElementById("outputMicrometersFromMilimeters").innerHTML=value*1000;
+}
+function MicrometersToCentimeters(value){
+  document.getElementById("outputCentimetersFromMicrometers").innerHTML=value/10000;
+}
+function CentimetersToMicrometers(value){
+  document.getElementById("outputMicrometersToCentimeters").innerHTML=value*10000;
+}
+function MilimetersToCentimeters(value){
+  document.getElementById("outputCentimetersFromMilimeters").innerHTML=value/10;
+}
+function CentimeterToMilimeters(value){
+  document.getElementById("outputMilimetersFromCentimeters").innerHTML=value*10;
+}
+function MilimeterToMeters(value){
+  document.getElementById("outputMetersFromMilimeters").innerHTML=value/1000;
+}
+function MeterToMilimeters(value){
+  document.getElementById("outputMilimetersFromMeters").innerHTML=value*1000;
+}
+*function MilimetersToKilometers(value){
+  document.getElementById("outputKilometersFromMilimeters").innerHTML=value/3.281;
+}
+function CentimetersToMeters(value){
+  document.getElementById("outputMetersFromCentimeters").innerHTML=value/100;
+}
+function MeterToCentimeters(value){
+  document.getElementById("outputCentimetersFromMeters").innerHTML=value*100;
+}
+function CentimetersToKilometers(value){
+  document.getElementById("outputKilometersFromCentimeters").innerHTML=value/100000;
+}
+function KilometersToCentimeters(value){
+  document.getElementById("outputCentimetersFromKilometers").innerHTML=value*100000;
+}
+function MeterToKilometers(value){
+  document.getElementById("outputKilometersFromMeters").innerHTML=value/1000;
+}
+function KilometersToMeters(value){
+  document.getElementById("outputMetersFromKilometers").innerHTML=value*1000;
+}
+</script>
+</body>
+</html>
