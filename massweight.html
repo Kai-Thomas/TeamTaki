@@ -4,18 +4,25 @@
   html, body { height:0%; margin:0; padding:0 }
   h5 { font-family:"verdana"; color:#CCC;}
   h4 { font-family:"verdana"}
+  h2 { font-family:"verdana"}
   h1 { font-family:"verdana"}
   a { text-decoration: none;}
+
+  body { background-image: url("stars1.jpg"); opacity: 0.85}
+
   #nav0 { position:fixed; height:7%; width:80; top:0%; left: 0%; background: #333; width:100% }
-  #nav1 { position:fixed; height:7%; width:80; top:0%; left: 0; width:6%}
+  #nav1 { position:fixed; height:7%; width:80; top:0%; left: 0; width:60}
   #nav2 { position:fixed; height:7%; width:120; top:0%; left: 60; }
   #nav3 { position:fixed; height:7%; width:80; top:0%; left: 190; }
   #nav4 { position:fixed; height:7%; width:80; top:0%; left: 310; }
-  #nav5 { position:fixed; height:7%; width:80; top:0%; left: 420; }
-  #nav6 { position:fixed; height:7%; width:80; top:0%; left: 490; }
+  #nav5 { position:fixed; height:7%; width:80; top:0%; left: 415; }
+  #nav6 { position:fixed; height:7%; width:80; top:0%; left: 495; }
 
   #box1{ position:fixed; left:10%; height:30%; top:13%; width:80%}
   #box2{ position:fixed; left:14%; height:30%; top:22%; width:80%}
+  #planetsbox{ position:fixed; left:14%; height:35%; top:55%; width:80%}
+  #planetsbox1{ position:fixed; left:15%; height:35%; top:74%; width:80%; border-style:solid}
+  #planetsbox2{ position:fixed; left:36%; height:35%; top:74%; width:80%}
 </style>
 
 <body>
@@ -46,19 +53,23 @@
   </div>
 </a>
 
-<div id= "nav5">
-  <h5><center>Currency</center></h5>
-</div>
+<a href="currency.html">
+  <div id= "nav5">
+    <h5><center>Currency</center></h5>
+  </div>
+</a>
 
-<div id= "nav6">
-  <h5><center>More</center></h5>
-</div>
+<a href="distances.html">
+  <div id= "nav6">
+    <h5><center>Distances</center></h5>
+  </div>
+</a>
 
 
 <div id = "box1">
-  <h1>Mass/Weight Conversion</h1>
+  <h1>Mass/Weight Converstion</h1>
   <div id = "box2">
-    <form id="frm1" action="/action_page.php">
+    <form id="frm1">
     <h4>Ounces: <input     id="oz"  placeholder=""></input></h4>
     <h4>Pounds: <input     id="lbs" placeholder=""></input></h4>
     <h4>Kilograms: <input  id="kg"  placeholder=""></input></h4>
@@ -68,9 +79,54 @@
   </div>
 </div>
 
+<div id = "planetsbox">
+  <form id="frm2">
+    <h2>What would you weigh on another planet?</h2>
+    <h4>Enter your weight: <input id="weight" placeholder=""></h4>
+    <h4><input type = "button" onclick="planets()" value="Submit"></h4>
+  </form>
+</div>
+<div id="planetsbox1">
+
+  <h4 id="mer">Your weight on Mercury:</h4>
+  <h4 id="ven">Your weight on Venus:</h4>
+  <h4 id="ear">Your weight on Earth:</h4>
+  <h4 id="mar">Your weight on Mars:</h4>
+
+</div>
+<div id="planetsbox2">
+
+  <h4 id="jup">Your weight on Jupiter:</h4>
+  <h4 id="sat">Your weight on Saturn:</h4>
+  <h4 id="ura">Your weight on Uranus:</h4>
+  <h4 id="nep">Your weight on Neptune:</h4>
+
+</div>
+
+
 </body>
 
 <script>
+
+  function planets(){
+    var y = document.getElementById("frm2");
+
+    var weight = y.elements[0].value;
+    document.getElementById("ear").innerHTML = "Your weight on Earth: "+weight;
+    weight = weight/9.8;
+
+    document.getElementById("mer").innerHTML = "Your weight on Mercury: "+( (weight*3.7).toFixed(2) );
+    document.getElementById("ven").innerHTML = "Your weight on Venus: "+( (weight*8.87).toFixed(2) );
+
+    document.getElementById("mar").innerHTML = "Your weight on Mars: "+( (weight*3.711).toFixed(2) );
+    document.getElementById("jup").innerHTML = "Your weight on Jupiter: "+( (weight*24.79).toFixed(2) );
+    document.getElementById("sat").innerHTML = "Your weight on Saturn: "+( (weight*10.44).toFixed(2) );
+    document.getElementById("ura").innerHTML = "Your weight on Uranus: "+( (weight*8.69).toFixed(2) );
+    document.getElementById("nep").innerHTML = "Your weight on Neptune: "+( (weight*11.15).toFixed(2) );
+    //{3.7, 8.87, 9.8, 3.711,  24.79, 10.44, 8.69, 11.15};
+
+
+  }
 
   // Kai's functions here
     function ouncesToPounds(ounces) {
@@ -183,12 +239,7 @@
       document.getElementById("g").placeholder = grams;
       document.getElementById("g").value = "";
     }
-
-
   }
-
-
-
 
 
 </script>
