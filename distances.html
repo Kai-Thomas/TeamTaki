@@ -1,0 +1,229 @@
+<html>
+
+<style>
+  html, body { height:0%; margin:0; padding:0 }
+  h5 { font-family:"verdana"; color:#CCC;}
+  h4 { font-family:"verdana"}
+  h1 { font-family:"verdana"}
+  a { text-decoration: none;}
+
+  body { background-image: url("distbg.jpg"); opacity: 0.85}
+
+  #nav0 { position:fixed; height:7%; width:80; top:0%; left: 0%; background: #333; width:100% }
+  #nav1 { position:fixed; height:7%; width:80; top:0%; left: 0; width:60}
+  #nav2 { position:fixed; height:7%; width:120; top:0%; left: 60; }
+  #nav3 { position:fixed; height:7%; width:80; top:0%; left: 190; }
+  #nav4 { position:fixed; height:7%; width:80; top:0%; left: 310; }
+  #nav5 { position:fixed; height:7%; width:80; top:0%; left: 415; }
+  #nav6 { position:fixed; height:7%; width:80; top:0%; left: 495; }
+
+  #box1{ position:fixed; left:10%; height:30%; top:13%; width:80%}
+  #box2{ position:fixed; left:14%; height:30%; top:22%; width:80%}
+</style>
+
+<body>
+    <div id="nav0">
+    </div>
+
+    <a href="home.html">
+        <div id="nav1">
+            <h5><center>Home</center></h5>
+        </div>
+    </a>
+
+    <a href="numbers.html">
+        <div id="nav2">
+            <h5><center>Number Bases</center></h5>
+        </div>
+    </a>
+
+    <a href="temp.html">
+        <div id="nav3">
+            <h5><center>Temperatures</center></h5>
+        </div>
+    </a>
+
+    <a href="massweight.html">
+        <div id="nav4">
+            <h5><center>Mass/Weight</center></h5>
+        </div>
+    </a>
+
+    <a href="currency.html">
+        <div id="nav5">
+            <h5><center>Currency</center></h5>
+        </div>
+    </a>
+
+    <a href="distances.html">
+        <div id="nav6">
+            <h5><center>Distances</center></h5>
+        </div>
+    </a>
+
+
+    <div id="box1">
+        <h1>Distance Conversion</h1>
+        <div id="box2">
+            <form id="frm1" action="/action_page.php">
+                <h4>Meters: <input id="m" placeholder=""></input></h4>
+                <h4>Feet: <input id="ft" placeholder=""></input></h4>
+                <h4>Millimeters: <input id="mm" placeholder=""></input></h4>
+                <h4>Miles: <input id="mi" placeholder=""></input></h4>
+                <h4>Micrometers: <input id="um" placeholder=""></input></h4>
+                <h4>Centimeters: <input id="cm" placeholder=""></input></h4>
+                <h4>Inches: <input id="inc" placeholder=""></input></h4>
+                <h4>Yards: <input id="y" placeholder=""></input></h4>
+                <h4>Kilometers: <input id="km" placeholder=""></input></h4>
+                <h4><input type="button" onclick="myFunction()" value="Submit"></h4>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+<script>
+
+    function kilometersToMeters(value) {
+        return (value * 1000);
+    }
+    function feetToMeters(value) {
+        return (value / 3.281);
+    }
+    function milesToMeters(value) {
+        return (value * 1609.344);
+    }
+    function millimetersToMeters(value) {
+        return (value / 1000);
+    }
+    function centimetersToMeters(value) {
+        return (value / 100);
+    }
+    function yardsToMeters(value) {
+        return (value / 1.094);
+    }
+    function inchesToMeters(value) {
+        return (value / 39.37);
+    }
+    function micrometersToMeters(value) {
+        return (value / 1000000);
+    }
+
+
+
+
+    function metersToInches(value) {
+        document.getElementById("inc").placeholder = (value * 39.37).toFixed(2);
+    }
+    function metersToFeet(value) {
+        document.getElementById("ft").placeholder = (value * 3.281).toFixed(2);
+    }
+    function metersToYards(value) {
+        document.getElementById("y").placeholder = (value * 1.094).toFixed(2);
+    }
+    function metersToMiles(value) {
+        document.getElementById("mi").placeholder = (value / 1609.344).toFixed(2);
+    }
+    function metersToMicrometers(value) {
+        document.getElementById("um").placeholder = (value * 1000000).toFixed(2);
+    }
+    function metersToMillimeters(value) {
+        document.getElementById("mm").placeholder = (value * 1000).toFixed(2);
+    }
+    function metersToCentimeters(value) {
+        document.getElementById("cm").placeholder = (value * 100).toFixed(2);
+    }
+    function metersToKilometers(value) {
+        document.getElementById("km").placeholder = (value / 1000).toFixed(2);
+    }
+
+
+
+    function metersToEverything(m) {
+        metersToInches(m);
+        metersToFeet(m);
+        metersToYards(m);
+        metersToMiles(m);
+        metersToMicrometers(m);
+        metersToMillimeters(m);
+        metersToCentimeters(m);
+        metersToKilometers(m);
+
+    }
+
+
+    function myFunction() {
+        //console.log("we in here");
+        var x = document.getElementById("frm1");
+
+        var m = x.elements[0].value;
+        var ft = x.elements[1].value;
+        var mm = x.elements[2].value;
+        var mi = x.elements[3].value;
+        var um = x.elements[4].value;
+        var cm = x.elements[5].value;
+        var inc = x.elements[6].value;
+        var y = x.elements[7].value;
+        var km = x.elements[8].value;
+
+        if (ft != "") {
+
+            var m = feetToMeters(ft);
+            document.getElementById("ft").placeholder = ft;
+            document.getElementById("ft").value = "";
+        }
+
+        else if (mm != "") {
+
+            var m = millimetersToMeters(mm);
+            document.getElementById("mm").placeholder = mm;
+            document.getElementById("mm").value = "";
+        }
+        else if (mi != "") {
+            //console.log(mi);
+            var m = milesToMeters(mi);
+            document.getElementById("mi").placeholder = mi;
+            document.getElementById("mi").value = "";
+        }
+        else if (um != "") {
+
+            var m = micrometersToMeters(um);
+            document.getElementById("um").placeholder = um;
+            document.getElementById("um").value = "";
+        }
+        else if (cm != "") {
+
+            var m = centimetersToMeters(cm);
+            document.getElementById("cm").placeholder = cm;
+            document.getElementById("cm").value = "";
+        }
+        else if (inc != "") {
+
+            var m = inchesToMeters(inc);
+            document.getElementById("inc").placeholder = inc;
+            document.getElementById("inc").value = "";
+        }
+        else if (y != "") {
+
+            var m = yardsToMeters(y);
+            document.getElementById("y").placeholder = y;
+            document.getElementById("y").value = "";
+        }
+        else if (km != "") {
+
+            var m = kilometersToMeters(km);
+            document.getElementById("km").placeholder = km;
+            document.getElementById("km").value = "";
+        }
+
+        document.getElementById("m").value = "";
+        m = parseFloat(m).toFixed(2);
+        document.getElementById("m").placeholder = m;
+        metersToEverything(m);
+
+    }
+
+
+</script>
+
+</html>

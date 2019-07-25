@@ -1,0 +1,114 @@
+<html>
+
+<style>
+  html, body { height:0%; margin:0; padding:0 }
+  h5 { font-family:"verdana"; color:#CCC;}
+  h4 { font-family:"verdana"}
+  h1 { font-family:"verdana"}
+  a { text-decoration: none;}
+
+  body { background-image: url("tempbg.jpg"); opacity: 0.85}
+
+  #nav0 { position:fixed; height:7%; width:80; top:0%; left: 0%; background: #333; width:100% }
+  #nav1 { position:fixed; height:7%; width:80; top:0%; left: 0; width:60}
+  #nav2 { position:fixed; height:7%; width:120; top:0%; left: 60; }
+  #nav3 { position:fixed; height:7%; width:80; top:0%; left: 190; }
+  #nav4 { position:fixed; height:7%; width:80; top:0%; left: 310; }
+  #nav5 { position:fixed; height:7%; width:80; top:0%; left: 415; }
+  #nav6 { position:fixed; height:7%; width:80; top:0%; left: 495; }
+
+  #box1{ position:fixed; left:10%; height:30%; top:13%; width:80%}
+  #box2{ position:fixed; left:14%; height:30%; top:22%; width:80%}
+</style>
+
+<body>
+<div id="nav0">
+</div>
+
+<a href="home.html">
+  <div id="nav1">
+    <h5><center>Home</center></h5>
+  </div>
+</a>
+
+<a href="numbers.html">
+  <div id= "nav2">
+    <h5><center>Number Bases</center></h5>
+  </div>
+</a>
+
+<a href="temp.html">
+  <div id="nav3">
+    <h5><center>Temperatures</center></h5>
+  </div>
+</a>
+
+<a href="massweight.html">
+  <div id= "nav4">
+    <h5><center>Mass/Weight</center></h5>
+  </div>
+</a>
+
+<a href="currency.html">
+  <div id= "nav5">
+    <h5><center>Currency</center></h5>
+  </div>
+</a>
+
+<a href="distances.html">
+  <div id= "nav6">
+    <h5><center>Distances</center></h5>
+  </div>
+</a>
+
+
+<div id = "box1">
+  <h1>Temperature Conversion</h1>
+  <div id = "box2">
+    <form id="frm1" action="/action_page.php">
+    <h4>Fahrenheit: <input  id="fah" placeholder=""></input></h4>
+    <h4>Celsius: <input     id="cel" placeholder=""></input></h4>
+    <h4><input type="button" onclick="myFunction()" value="Submit"></h4>
+    </form>
+  </div>
+</div>
+
+</body>
+
+<script>
+
+
+  function myFunction() {
+    var x = document.getElementById("frm1");
+
+    var f = x.elements[0].value;
+    var c = x.elements[1].value;
+
+    if (f != ""){
+
+      c = (f - 32) *5/9;
+      c = c.toFixed(2);
+      document.getElementById("cel").placeholder = c;
+      document.getElementById("fah").placeholder = f;
+      document.getElementById("fah").value = "";
+    }
+
+    else if (c != "") {
+
+      f = (c *9/5) + 32;
+      f = f.toFixed(2);
+      document.getElementById("fah").placeholder = f;
+      document.getElementById("cel").placeholder = c;
+      document.getElementById("cel").value = "";
+    }
+
+
+  }
+
+
+
+
+
+</script>
+
+</html>

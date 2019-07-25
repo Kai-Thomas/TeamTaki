@@ -1,0 +1,218 @@
+<html>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+
+<style>
+  html, body { height:0%; margin:0; padding:0 }
+  h5 { font-family:"verdana"; color:#CCC;}
+  h4 { font-family:"verdana"}
+  h1 { font-family:"verdana"}
+  a { text-decoration: none;}
+
+  body { background-image: url("moneybg.jpg"); opacity: 0.85}
+
+  #nav0 { position:fixed; height:7%; width:80; top:0%; left: 0%; background: #333; width:100% }
+  #nav1 { position:fixed; height:7%; width:80; top:0%; left: 0; width:60}
+  #nav2 { position:fixed; height:7%; width:120; top:0%; left: 60; }
+  #nav3 { position:fixed; height:7%; width:80; top:0%; left: 190; }
+  #nav4 { position:fixed; height:7%; width:80; top:0%; left: 310; }
+  #nav5 { position:fixed; height:7%; width:80; top:0%; left: 415; }
+  #nav6 { position:fixed; height:7%; width:80; top:0%; left: 495; }
+
+  #box1{ position:fixed; left:10%; height:30%; top:13%; width:80%}
+  #box2{ position:fixed; left:14%; height:30%; top:22%; width:80%}
+</style>
+
+<body>
+<div id="nav0">
+</div>
+
+<a href="home.html">
+  <div id="nav1">
+    <h5><center>Home</center></h5>
+  </div>
+</a>
+
+<a href="numbers.html">
+  <div id= "nav2">
+    <h5><center>Number Bases</center></h5>
+  </div>
+</a>
+
+<a href="temp.html">
+  <div id="nav3">
+    <h5><center>Temperatures</center></h5>
+  </div>
+</a>
+
+<a href="massweight.html">
+  <div id= "nav4">
+    <h5><center>Mass/Weight</center></h5>
+  </div>
+</a>
+
+<a href="currency.html">
+  <div id= "nav5">
+    <h5><center>Currency</center></h5>
+  </div>
+</a>
+
+<a href="distances.html">
+  <div id= "nav6">
+    <h5><center>Distances</center></h5>
+  </div>
+</a>
+
+<div id = "box1">
+  <h1>Currency Conversion</h1>
+  <div id = "box2">
+    <form id="frm1" action="/action_page.php">
+    <h4>USD: <input  id="usd" placeholder=""></input></h4>
+    <h4>EUR: <input  id="eur" placeholder=""></input></h4>
+    <h4>JPY: <input  id="jpy" placeholder=""></input></h4>
+    <h4>GBP: <input  id="gbp" placeholder=""></input></h4>
+    <h4>AUD: <input  id="aud" placeholder=""></input></h4>
+    <h4>NZD: <input  id="nzd" placeholder=""></input></h4>
+    <h4>CAD: <input  id="cad" placeholder=""></input></h4>
+    <h4>CHF: <input  id="chf" placeholder=""></input></h4>
+    <h4>CNY: <input  id="cny" placeholder=""></input></h4>
+    <h4>SEK: <input  id="sek" placeholder=""></input></h4>
+    <h4><input type="button" onclick="myFunction()" value="Submit"></h4>
+    </form>
+  </div>
+</div>
+
+
+
+
+</body>
+
+<script>
+
+//  $(document).ready(function() {
+//			var url ='https://api.exchangeratesapi.io/latest?base=USD';
+//			$.ajax({url:url, dataType:"json"}).then(function(output) {
+//        console.log(output);
+//        var usd = output.rates["USD"];
+//        var eur = output.rates["EUR"];
+//        var jpy = output.rates["JPY"];
+//        var gbp = output.rates["GBP"];
+//        var aud = output.rates["AUD"];
+//        var nzd = output.rates["NZD"];
+//        var cad = output.rates["CAD"];
+//        var chf = output.rates["CHF"];
+//        var cnh = output.rates["CNH"];
+//        var sek = output.rates["SEK"];
+//        console.log(usd);
+//        console.log(eur);
+//
+//      });
+//    });
+
+
+  function dollarToEverything(usd){
+    $(document).ready(function() {
+        var url ='https://api.exchangeratesapi.io/latest?base=USD';
+        $.ajax({url:url, dataType:"json"}).then(function(output) {
+
+          document.getElementById("eur").placeholder = (usd * output.rates["EUR"]).toFixed(2);
+          document.getElementById("jpy").placeholder = (usd * output.rates["JPY"]).toFixed(2);
+          document.getElementById("gbp").placeholder = (usd * output.rates["GBP"]).toFixed(2);
+          document.getElementById("aud").placeholder = (usd * output.rates["AUD"]).toFixed(2);
+          document.getElementById("nzd").placeholder = (usd * output.rates["NZD"]).toFixed(2);
+          document.getElementById("cad").placeholder = (usd * output.rates["CAD"]).toFixed(2);
+          document.getElementById("chf").placeholder = (usd * output.rates["CHF"]).toFixed(2);
+          document.getElementById("cny").placeholder = (usd * output.rates["CNY"]).toFixed(2);
+          document.getElementById("sek").placeholder = (usd * output.rates["SEK"]).toFixed(2);
+
+          document.getElementById("usd").placeholder = usd.toFixed(2);
+
+        });
+      });
+  }
+
+
+
+
+  function myFunction() {
+
+    $(document).ready(function() {
+        var url ='https://api.exchangeratesapi.io/latest?base=USD';
+        $.ajax({url:url, dataType:"json"}).then(function(output) {
+
+    var x = document.getElementById("frm1");
+
+    var usd = x.elements[0].value;
+    var eur = x.elements[1].value;
+    var jpy = x.elements[2].value;
+    var gbp = x.elements[3].value;
+    var aud = x.elements[4].value;
+    var nzd = x.elements[5].value;
+    var cad = x.elements[6].value;
+    var chf = x.elements[7].value;
+    var cny = x.elements[8].value;
+    var sek = x.elements[9].value;
+
+
+    if (eur != ""){
+      usd = eur / output.rates["EUR"];
+      document.getElementById("eur").placeholder = eur;
+      document.getElementById("eur").value = "";
+    }
+    else if(jpy != ""){
+      usd = jpy / output.rates["JPY"];
+      document.getElementById("jpy").placeholder = jpy;
+      document.getElementById("jpy").value = "";
+    }
+    else if(gbp != ""){
+      usd = gbp / output.rates["GBP"];
+      document.getElementById("gbp").placeholder = gbp;
+      document.getElementById("gbp").value = "";
+    }
+    else if(aud != ""){
+      usd = aud / output.rates["AUD"];
+      document.getElementById("aud").placeholder = aud;
+      document.getElementById("aud").value = "";
+    }
+    else if(nzd != ""){
+      usd = nzd / output.rates["NZD"];
+      document.getElementById("nzd").placeholder = nzd;
+      document.getElementById("nzd").value = "";
+    }
+    else if(cad != ""){
+      usd = cad / output.rates["CAD"];
+      document.getElementById("cad").placeholder = cad;
+      document.getElementById("cad").value = "";
+    }
+    else if(chf != ""){
+      usd = chf / output.rates["CHF"];
+      document.getElementById("chf").placeholder = chf;
+      document.getElementById("chf").value = "";
+    }
+    else if(cny != ""){
+      usd = cny / output.rates["CNY"];
+      document.getElementById("cny").placeholder = cny;
+      document.getElementById("cny").value = "";
+    }
+    else if(sek != ""){
+      usd = sek / output.rates["SEK"];
+      document.getElementById("sek").placeholder = sek;
+      document.getElementById("sek").value = "";
+    }
+
+    document.getElementById("usd").value = "";
+    document.getElementById("usd").placeholder = usd.toFixed(2);
+    dollarToEverything(usd);
+
+  });
+  });
+  }
+
+
+
+
+
+</script>
+
+</html>
